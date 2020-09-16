@@ -6,14 +6,29 @@ document.getElementById("search").addEventListener("click", getWeather)
         function getWeather() {
 
             let city = document.getElementById("city").value;
-            let weatherTemp;
+            let weatherTemp1;
+            let weatherTemp2;
+            let weatherTemp3;
+            let weatherTemp4;
+            let weatherTemp5;
 
             axios.get('http://api.openweathermap.org/data/2.5/forecast?q=' + city + '&units=metric&appid=' + mykey)
                 .then(response => {
-                    weatherTemp = response.data.list[1].main.temp
+
+                    weatherTemp1 = response.data.list[1].main.temp
+                    weatherTemp2 = response.data.list[2].main.temp
+                    weatherTemp3 = response.data.list[3].main.temp
+                    weatherTemp4 = response.data.list[4].main.temp
+                    weatherTemp5 = response.data.list[5].main.temp
 
 
-                    document.getElementById("temp").innerHTML = weatherTemp
+                    document.getElementById("temp1").innerHTML = weatherTemp1
+                    document.getElementById("temp2").innerHTML = weatherTemp2
+                    document.getElementById("temp3").innerHTML = weatherTemp3
+                    document.getElementById("temp4").innerHTML = weatherTemp4
+                    document.getElementById("temp5").innerHTML = weatherTemp5
+
+
                     console.log(response);
                 })
                 .catch(function (error) {
