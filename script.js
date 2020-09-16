@@ -6,11 +6,13 @@ document.getElementById("search").addEventListener("click", getWeather)
         function getWeather() {
 
             let city = document.getElementById("city").value;
-            let weather;
+            let weatherTemp;
 
             axios.get('http://api.openweathermap.org/data/2.5/forecast?q=' + city + '&appid=' + mykey)
                 .then(response => {
-                    weather = response.data.list[1].main.temp
+                    weatherTemp = response.data.list[1].main.temp
+
+                    document.getElementById("temp").innerHTML = weatherTemp
                     console.log(response);
                     console.log(weather);
                 })
