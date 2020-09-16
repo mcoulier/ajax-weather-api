@@ -8,13 +8,13 @@ document.getElementById("search").addEventListener("click", getWeather)
             let city = document.getElementById("city").value;
             let weatherTemp;
 
-            axios.get('http://api.openweathermap.org/data/2.5/forecast?q=' + city + '&appid=' + mykey)
+            axios.get('http://api.openweathermap.org/data/2.5/forecast?q=' + city + '&units=metric&appid=' + mykey)
                 .then(response => {
                     weatherTemp = response.data.list[1].main.temp
 
+
                     document.getElementById("temp").innerHTML = weatherTemp
                     console.log(response);
-                    console.log(weather);
                 })
                 .catch(function (error) {
                     // handle error
