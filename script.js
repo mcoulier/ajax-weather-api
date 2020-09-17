@@ -1,5 +1,12 @@
 (() => {
-    var mykey = config.MY_KEY;
+    const mykey = config.MY_KEY;
+    const accessKey = config.MY_ACCESSKEY;
+    const usplashKey = config.MY_USPLASHKEY;
+
+    const Unsplash = require('unsplash-js').default;
+    const toJson = require('unsplash-js').toJson;
+
+    const unsplash = new Unsplash({ accessKey: config.MY_ACCESSKEY });
 
 document.getElementById("search").addEventListener("click", getWeather)
 
@@ -12,9 +19,7 @@ document.getElementById("search").addEventListener("click", getWeather)
             let weatherTemp4;
             let weatherTemp5;
             let cityName;
-            let feelsLike1;
-
-
+            let cityDate;
 
             axios.get('http://api.openweathermap.org/data/2.5/forecast?q=' + city + '&units=metric&appid=' + mykey)
                 .then(response => {
@@ -25,17 +30,14 @@ document.getElementById("search").addEventListener("click", getWeather)
                     weatherTemp4 = response.data.list[4].main.temp
                     weatherTemp5 = response.data.list[5].main.temp
                     cityName = response.data.city.name
-                    feelsLike1 = response.data.list[1].main.feels_like
 
 
-                    document.getElementById("temp1").innerHTML = Math.round(weatherTemp1)
-                    document.getElementById("temp2").innerHTML = Math.round(weatherTemp2)
-                    document.getElementById("temp3").innerHTML = Math.round(weatherTemp3)
-                    document.getElementById("temp4").innerHTML = Math.round(weatherTemp4)
-                    document.getElementById("temp5").innerHTML = Math.round(weatherTemp5)
+                    document.getElementById("temp1").innerHTML = Math.round(weatherTemp1) + "°C"
+                    document.getElementById("temp2").innerHTML = Math.round(weatherTemp2) + "°C"
+                    document.getElementById("temp3").innerHTML = Math.round(weatherTemp3) + "°C"
+                    document.getElementById("temp4").innerHTML = Math.round(weatherTemp4) + "°C"
+                    document.getElementById("temp5").innerHTML = Math.round(weatherTemp5) + "°C"
                     document.getElementById("cityName").innerHTML = cityName
-                    document.getElementById("feels1").innerHTML = feelsLike1
-
 
                     console.log(response);
                 })
@@ -43,5 +45,25 @@ document.getElementById("search").addEventListener("click", getWeather)
                     alert("Please enter the name of a city")
                     console.log(error);
                 })
+
+            axios.get('https://api.unsplash.com/search/photos?query=' + city)
+                .then(function (response) {
+                    if (!response.ok){
+                        console.log(response);
+                        return new Error(response);
+                    }
+                    console.log("Response:", response);
+                    return response.blob();
+                })
+
         }
+
+        function makeDate(){
+            let today = new Date();
+            let date1 = today.getDate();
+            console.log(date1)
+
+        }
+
+
 })();
