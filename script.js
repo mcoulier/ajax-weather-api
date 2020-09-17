@@ -12,6 +12,9 @@ document.getElementById("search").addEventListener("click", getWeather)
             let weatherTemp4;
             let weatherTemp5;
             let cityName;
+            let feelsLike1;
+
+
 
             axios.get('http://api.openweathermap.org/data/2.5/forecast?q=' + city + '&units=metric&appid=' + mykey)
                 .then(response => {
@@ -22,6 +25,8 @@ document.getElementById("search").addEventListener("click", getWeather)
                     weatherTemp4 = response.data.list[4].main.temp
                     weatherTemp5 = response.data.list[5].main.temp
                     cityName = response.data.city.name
+                    feelsLike1 = response.data.list[1].main.feels_like
+
 
                     document.getElementById("temp1").innerHTML = Math.round(weatherTemp1)
                     document.getElementById("temp2").innerHTML = Math.round(weatherTemp2)
@@ -29,12 +34,13 @@ document.getElementById("search").addEventListener("click", getWeather)
                     document.getElementById("temp4").innerHTML = Math.round(weatherTemp4)
                     document.getElementById("temp5").innerHTML = Math.round(weatherTemp5)
                     document.getElementById("cityName").innerHTML = cityName
+                    document.getElementById("feels1").innerHTML = feelsLike1
+
 
                     console.log(response);
-                    console.log(cityName);
                 })
                 .catch(function (error) {
-                    // handle error
+                    alert("Please enter the name of a city")
                     console.log(error);
                 })
         }
