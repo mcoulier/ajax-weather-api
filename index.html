@@ -11,16 +11,33 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
-<body>
-<div id="container">
-    <div id="display">
+<body class="container">
+<div class="container">
     <h1 id="cityName"></h1>
+    <h5 id="cityCoords"></h5>
+    <div class="card-deck">
+    <div class="card border-0" id="Day1">
     <p id="temp1"></p>
-    <p id="temp2"></p>
-    <p id="temp3"></p>
-    <p id="temp4"></p>
-    <p id="temp5"></p>
-</div>
+        <p id="feels1"></p>
+    </div>
+
+    <div class="card border-0" id="Day2">
+        <p id="temp2"></p>
+    </div>
+
+    <div class="card border-0" id="Day3">
+        <p id="temp3"></p>
+    </div>
+
+    <div class="card border-0" id="Day4">
+        <p id="temp4"></p>
+    </div>
+
+    <div class="card border-0" id="Day5">
+        <p id="temp5"></p>
+    </div>
+    </div>
+
     <input id="city" type="text">
     <button id="search" type="button">Search</button>
 </div>
