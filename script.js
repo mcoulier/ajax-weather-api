@@ -30,7 +30,6 @@ document.getElementById("search").addEventListener("click", getWeather)
                     weatherTemp5 = response.data.list[5].main.temp
                     cityName = response.data.city.name
 
-
                     document.getElementById("temp1").innerHTML = Math.round(weatherTemp1) + "°C"
                     document.getElementById("temp2").innerHTML = Math.round(weatherTemp2) + "°C"
                     document.getElementById("temp3").innerHTML = Math.round(weatherTemp3) + "°C"
@@ -48,16 +47,9 @@ document.getElementById("search").addEventListener("click", getWeather)
             axios.get('https://api.unsplash.com/search/photos?query=' + city + '&client_id=' + config.MY_ACCESSKEY)
                 .then(function (response) {
                     if (!response.ok){
-                        document.getElementById("cityPicture").setAttribute("src", response.data[2])
+                        document.getElementById("cityPicture").setAttribute("src", response.data.results[1].urls.small)
                         console.log(response);
-                        return new Error(response);
                     }
-                    console.log("Response:", response);
-                    return response.blob();
                 })
-
         }
-
-
-
 })();
