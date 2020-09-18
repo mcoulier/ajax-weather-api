@@ -3,10 +3,10 @@
     const accessKey = config.MY_ACCESSKEY;
     const usplashKey = config.MY_USPLASHKEY;
 
-    const Unsplash = require('unsplash-js').default;
-    const toJson = require('unsplash-js').toJson;
+    ///const Unsplash = require('unsplash-js').default;
+    //const toJson = require('unsplash-js').toJson;
 
-    const unsplash = new Unsplash({ accessKey: config.MY_ACCESSKEY });
+    //const unsplash = new Unsplash({ accessKey: config.MY_ACCESSKEY });
 
 document.getElementById("search").addEventListener("click", getWeather)
 
@@ -19,7 +19,6 @@ document.getElementById("search").addEventListener("click", getWeather)
             let weatherTemp4;
             let weatherTemp5;
             let cityName;
-            let cityDate;
 
             axios.get('http://api.openweathermap.org/data/2.5/forecast?q=' + city + '&units=metric&appid=' + mykey)
                 .then(response => {
@@ -46,9 +45,10 @@ document.getElementById("search").addEventListener("click", getWeather)
                     console.log(error);
                 })
 
-            axios.get('https://api.unsplash.com/search/photos?query=' + city)
+            axios.get('https://api.unsplash.com/search/photos?query=' + city + '&client_id=' + config.MY_ACCESSKEY)
                 .then(function (response) {
                     if (!response.ok){
+                        document.getElementById("cityPicture").setAttribute("src", response.data[2])
                         console.log(response);
                         return new Error(response);
                     }
@@ -58,12 +58,6 @@ document.getElementById("search").addEventListener("click", getWeather)
 
         }
 
-        function makeDate(){
-            let today = new Date();
-            let date1 = today.getDate();
-            console.log(date1)
-
-        }
 
 
 })();
