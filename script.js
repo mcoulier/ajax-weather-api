@@ -8,14 +8,16 @@
     //const toJson = require('unsplash-js').toJson;
     //const unsplash = new Unsplash({ accessKey: config.MY_ACCESSKEY });
 
-enterButton.addEventListener("keyup", function(event){
-    if (KeyboardEvent.keyCode === 13){
-        event.preventDefault();
-        document.getElementById("search").click();
-    }
-});
+
 
 document.getElementById("search").addEventListener("click", getWeather)
+
+    enterButton.addEventListener("keyup", function(event){
+        if (KeyboardEvent.keyCode === 13){
+            event.preventDefault();
+            document.getElementById("search").click();
+        }
+    });
 
         function getWeather() {
 
