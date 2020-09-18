@@ -28,6 +28,12 @@ document.getElementById("search").addEventListener("click", getWeather)
             let weatherTemp4;
             let weatherTemp5;
             let cityName;
+            let weatherDesc1;
+            let weatherDesc2;
+            let weatherDesc3;
+            let weatherDesc4;
+            let weatherDesc5;
+
 
             axios.get('http://api.openweathermap.org/data/2.5/forecast?q=' + city + '&units=metric&appid=' + mykey)
                 .then(response => {
@@ -38,6 +44,12 @@ document.getElementById("search").addEventListener("click", getWeather)
                     weatherTemp4 = response.data.list[4].main.temp
                     weatherTemp5 = response.data.list[5].main.temp
                     cityName = response.data.city.name
+                    weatherDesc1 = response.data.list[1].weather[0].description
+                    weatherDesc2 = response.data.list[2].weather[0].description
+                    weatherDesc3 = response.data.list[3].weather[0].description
+                    weatherDesc4 = response.data.list[4].weather[0].description
+                    weatherDesc5 = response.data.list[5].weather[0].description
+
 
                     document.getElementById("temp1").innerHTML = Math.round(weatherTemp1) + "°C"
                     document.getElementById("temp2").innerHTML = Math.round(weatherTemp2) + "°C"
@@ -45,6 +57,7 @@ document.getElementById("search").addEventListener("click", getWeather)
                     document.getElementById("temp4").innerHTML = Math.round(weatherTemp4) + "°C"
                     document.getElementById("temp5").innerHTML = Math.round(weatherTemp5) + "°C"
                     document.getElementById("cityName").innerHTML = cityName
+                    document.getElementById("desc1").innerHTML = weatherDesc1
 
                     console.log(response);
                 })
