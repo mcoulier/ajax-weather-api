@@ -2,11 +2,18 @@
     const mykey = config.MY_KEY;
     const accessKey = config.MY_ACCESSKEY;
     const usplashKey = config.MY_USPLASHKEY;
+    let enterButton = document.getElementById("search");
 
     ///const Unsplash = require('unsplash-js').default;
     //const toJson = require('unsplash-js').toJson;
-
     //const unsplash = new Unsplash({ accessKey: config.MY_ACCESSKEY });
+
+enterButton.addEventListener("keyup", function(event){
+    if (KeyboardEvent.keyCode === 13){
+        event.preventDefault();
+        document.getElementById("search").click();
+    }
+});
 
 document.getElementById("search").addEventListener("click", getWeather)
 
