@@ -24,9 +24,6 @@ h2{
     width: 50%;
 }
 
-#citySearch{
-}
-
 button{
     background-color: #269AF2;
     color: floralwhite;
@@ -39,7 +36,6 @@ p {
 
 .card{
     box-shadow: 3px 3px 4px;
-    padding-bottom: 5px;
 }
 
 .card-title{
