@@ -41,6 +41,7 @@ document.getElementById("search").addEventListener("click", getWeather)
                     weatherDesc5 = response.data.list[5].weather[0].description
 
 
+
                     document.getElementById("temp1").innerHTML = Math.round(weatherTemp1) + "°C"
                     document.getElementById("temp2").innerHTML = Math.round(weatherTemp2) + "°C"
                     document.getElementById("temp3").innerHTML = Math.round(weatherTemp3) + "°C"
@@ -75,4 +76,5 @@ document.getElementById("search").addEventListener("click", getWeather)
 
         }
     });
+
 })();
