@@ -58,6 +58,10 @@ document.getElementById("search").addEventListener("click", getWeather)
                     document.getElementById("temp5").innerHTML = Math.round(weatherTemp5) + "°C"
                     document.getElementById("cityName").innerHTML = cityName
                     document.getElementById("desc1").innerHTML = weatherDesc1
+                    document.getElementById("desc2").innerHTML = weatherDesc2
+                    document.getElementById("desc3").innerHTML = weatherDesc3
+                    document.getElementById("desc4").innerHTML = weatherDesc4
+                    document.getElementById("desc5").innerHTML = weatherDesc5
 
                     console.log(response);
                 })
