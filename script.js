@@ -28,7 +28,12 @@ document.getElementById("search").addEventListener("click", getWeather)
             axios.get('http://api.openweathermap.org/data/2.5/forecast?q=' + city + '&units=metric&appid=' + mykey)
                 .then(response => {
 
-                    weatherTemp1 = response.data.list[1].main.temp
+                    for (x = 1; x < 6; x++){
+                        weatherTemp = response.data.list[x].main.temp
+                        console.log(x)
+                        console.log(weatherTemp)
+                    }
+
                     weatherTemp2 = response.data.list[2].main.temp
                     weatherTemp3 = response.data.list[3].main.temp
                     weatherTemp4 = response.data.list[4].main.temp
